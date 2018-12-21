@@ -18,10 +18,10 @@ router.get("/", function (req, res) {
 
 router.post("/api/burgers/:name", function (req, res) {
   //console.log(req.body)
-  burgers.create(["name", "devoured"]
-  [req.params.name, "false"], function (result) {
+  burgers.create("burger_name", req.params.name, function (result) {
+    console.log("db update")
     // Send back the ID of the new quote
-    res.json({ id: result.insertId });
+    res.json(result);
   });
 });
 

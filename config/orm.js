@@ -48,19 +48,12 @@ var orm = {
       cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO " + table;
-
-    queryString += " (";
-    queryString += cols.toString();
-    queryString += ") ";
-    queryString += "VALUES (";
-    queryString += printQuestionMarks(vals.length);
-    queryString += ") ";
-
+  create: function (table, col, val, cb) {
+    console.log()
+    var queryString = "INSERT INTO "+ table + "(" + col + ") VALUES ('" + val + "');"
     console.log(queryString);
 
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
