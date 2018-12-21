@@ -9,7 +9,9 @@ var burger = {
   },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
-    console.log("from burgers.js",cols,vals);
+    // debugger
+     console.log("from burgers.js",cols,vals);
+
     orm.create("burgers", cols, vals, function(res) {
       cb(res);
     });

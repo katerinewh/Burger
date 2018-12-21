@@ -42,19 +42,24 @@ $(function () {
     event.preventDefault();
 
     var name = $('#name').val().trim();
-    var newBurger = {
-      name: name,
-      devoured: 0
-    };
-    console.log("new burger", newBurger);
-    $.ajax("/api/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(function (data) {
-      console.log("burger created", data)
+    // var newBurger = {
+    //   name: name,
+    //   devoured: 0
+    // };
+    // console.log("new burger", newBurger);
+
+    // $.ajax("/api/burgers", {
+    //   type: "POST",
+    //   data: newBurger
+    // }).then(function (data) {
+    //   console.log("I am callling ajax", data)
+    //   location.reload();
+    // }).catch(function(err){
+    //   console.log(err);
+    // })
+    $.ajax("/api/burgers/"+name, {method : "POST"}).then( function(res){
+      console.log(res);
       location.reload();
-    }).catch(function(err){
-      console.log(err);
     })
   });
 
